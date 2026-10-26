@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_posts/
+Disallow: /_pages/
+Sitemap: https://iethan333.github.io/sitemap.xml

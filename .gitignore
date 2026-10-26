@@ -1,15 +1,15 @@
+# 构建暂存目录（本地预览用，不入库）
+site/
+__pycache__/
+*.pyc
 
-_site/*
-_theme_packages/*
+# 旧版备份
+.backup-*/
 
-Thumbs.db
+# 系统垃圾
 .DS_Store
-
-!.gitkeep
-
-.rbenv-version
-.rvmrc
-/vendor
-_data/languages/pt.yml
-*.json
+Thumbs.db
 .sass-cache/
+
+# 调试截图
+shots/
