@@ -1,1 +1,396 @@
-// Custom styles.
+// 经卷 — 纸、墨、朱三色，宋体正文，楷体栏目与引文。
+// 只覆盖需要的部分，主题其余样式保持原样。
+
+// ---------------------------------------------------------------
+// Tokens
+// ---------------------------------------------------------------
+$paper        : #E8E5DA;   // 页面底色
+$paper-light  : #F3F1EA;   // 阅读面
+$ink          : #1B1916;   // 正文
+$ink-faint    : #6E675C;   // 日期、次要信息
+$cinnabar     : #A03C2B;   // 全站只出现在栏目印与链接悬停
+
+$serif : "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+$kai   : "Kaiti SC", "KaiTi", "STKaiti", "Noto Serif CJK SC", serif;
+
+// ---------------------------------------------------------------
+// Global
+// ---------------------------------------------------------------
+body {
+  background: $paper;
+  color: $ink;
+  font-family: $serif;
+}
+
+.main-inner,
+.content-wrap {
+  background: transparent;
+}
+
+a {
+  color: $ink;
+  transition: color .15s ease;
+  &:hover { color: $cinnabar; }
+}
+
+// ---------------------------------------------------------------
+// Header
+// ---------------------------------------------------------------
+.site-title a {
+  font-family: $serif;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: $ink;
+}
+
+.site-subtitle { color: $ink-faint; }
+
+.menu .menu-item a {
+  font-family: $serif;
+  color: $ink-faint;
+  &:hover { color: $cinnabar; }
+}
+
+// ---------------------------------------------------------------
+// Home: 两栏书架
+// ---------------------------------------------------------------
+.home-intro {
+  padding: 3.2em 0 2.4em;
+  border-bottom: 1px solid rgba($ink, .12);
+  margin-bottom: 3em;
+}
+
+.home-lede {
+  font-family: $kai;
+  font-size: 1.9em;
+  line-height: 1.7;
+  letter-spacing: .02em;
+  margin: 0;
+  color: $ink;
+}
+
+.shelf {
+  margin-bottom: 3.6em;
+}
+
+.shelf-title {
+  font-family: $serif;
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: .18em;
+  margin: 0 0 .5em;
+  color: $ink;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+}
+
+.shelf-seal {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  margin-right: .7em;
+  background: $cinnabar;
+  color: $paper-light;
+  font-size: .78em;
+  font-weight: 400;
+  letter-spacing: 0;
+  border-radius: 1px;
+}
+
+.shelf-note {
+  font-size: .92em;
+  color: $ink-faint;
+  margin: 0 0 1.6em;
+  letter-spacing: .01em;
+}
+
+.shelf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid rgba($ink, .08);
+    &:last-child { border-bottom: none; }
+  }
+
+  a {
+    display: flex;
+    align-items: baseline;
+    gap: 1.6em;
+    padding: .95em 0;
+    text-decoration: none;
+  }
+
+  time {
+    flex: 0 0 6.6em;
+    font-size: .82em;
+    color: $ink-faint;
+    letter-spacing: .04em;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.shelf-post-title {
+  font-size: 1.02em;
+  line-height: 1.55;
+  color: $ink;
+}
+
+.shelf-list a:hover .shelf-post-title { color: $cinnabar; }
+
+.shelf-more {
+  display: inline-block;
+  margin-top: 1.3em;
+  font-size: .86em;
+  color: $ink-faint;
+  letter-spacing: .06em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba($ink, .2);
+  padding-bottom: .15em;
+  &:hover { color: $cinnabar; border-color: $cinnabar; }
+}
+
+// ---------------------------------------------------------------
+// 栏目列表页
+// ---------------------------------------------------------------
+.column-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid rgba($ink, .08);
+    &:first-child { border-top: 1px solid rgba($ink, .08); }
+  }
+
+  a {
+    display: block;
+    padding: 1.5em 0;
+    text-decoration: none;
+  }
+
+  time {
+    display: block;
+    font-size: .8em;
+    color: $ink-faint;
+    letter-spacing: .06em;
+    margin-bottom: .5em;
+  }
+}
+
+.column-title {
+  display: block;
+  font-size: 1.15em;
+  line-height: 1.55;
+  color: $ink;
+}
+
+.column-list a:hover .column-title { color: $cinnabar; }
+
+.column-desc {
+  display: block;
+  margin-top: .55em;
+  font-size: .9em;
+  line-height: 1.75;
+  color: $ink-faint;
+}
+
+// ---------------------------------------------------------------
+// 文章页
+// ---------------------------------------------------------------
+.posts-expand .post {
+  margin-top: 2em;
+
+  .post-title {
+    font-family: $serif;
+    font-size: 1.75em;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: .01em;
+    margin-bottom: .8em;
+  }
+
+  .post-meta {
+    font-size: .84em;
+    color: $ink-faint;
+    letter-spacing: .03em;
+  }
+
+  .post-body {
+    font-size: 1.02em;
+    line-height: 2.05;
+    letter-spacing: .012em;
+    color: $ink;
+
+    p { margin: 0 0 1.5em; }
+
+    h2 {
+      font-family: $serif;
+      font-size: 1.12em;
+      font-weight: 600;
+      letter-spacing: .1em;
+      margin: 2.6em 0 1.2em;
+      color: $ink;
+      border-bottom: 1px solid rgba($ink, .1);
+      padding-bottom: .5em;
+    }
+
+    h3 {
+      font-size: 1.02em;
+      font-weight: 600;
+      margin: 2em 0 1em;
+    }
+
+    blockquote {
+      margin: 2em 0;
+      padding: .2em 0 .2em 1.6em;
+      border-left: 2px solid rgba($cinnabar, .45);
+      background: transparent;
+      font-family: $kai;
+      font-size: 1.06em;
+      line-height: 1.95;
+      color: $ink;
+
+      p { margin: 0 0 .8em; &:last-child { margin-bottom: 0; } }
+    }
+
+    strong { font-weight: 600; }
+
+    a {
+      color: $ink;
+      border-bottom: 1px solid rgba($cinnabar, .35);
+      &:hover { color: $cinnabar; }
+    }
+
+    code {
+      font-size: .88em;
+      background: rgba($ink, .05);
+      border: none;
+      color: $ink;
+    }
+  }
+}
+
+// 标题下的栏目印
+.posts-expand .post-title-link {
+  color: $ink;
+
+  &:hover { color: $cinnabar; }
+}
+
+.post-categories {
+  .post-category a {
+    font-family: $kai;
+    font-size: .95em;
+    color: $cinnabar;
+    border-bottom: none;
+  }
+}
+
+// ---------------------------------------------------------------
+// 页脚
+// ---------------------------------------------------------------
+.footer {
+  color: $ink-faint;
+  font-size: .84em;
+  a { color: $ink-faint; &:hover { color: $cinnabar; } }
+}
+
+// ---------------------------------------------------------------
+// 移动端
+// ---------------------------------------------------------------
+@media (max-width: 767px) {
+  .home-lede { font-size: 1.45em; }
+
+  .shelf-list a {
+    flex-direction: column;
+    gap: .35em;
+    padding: .9em 0;
+  }
+
+  .shelf-list time { flex: none; }
+
+  .posts-expand .post {
+    .post-title { font-size: 1.4em; }
+    .post-body { font-size: .98em; line-height: 1.95; }
+  }
+}
+
+// ---------------------------------------------------------------
+// 侧栏：纸墨化
+// ---------------------------------------------------------------
+.site-brand-container {
+  background: $ink !important;
+}
+
+.site-meta {
+  .brand { color: $paper-light !important; font-family: $serif; font-weight: 600; letter-spacing: .06em; }
+  .site-subtitle { color: rgba($paper-light, .55) !important; font-family: $kai; }
+}
+
+.sidebar {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.sidebar-inner {
+  background: $paper-light;
+  border-radius: 0;
+  border: 1px solid rgba($ink, .1);
+}
+
+.site-state-item,
+.links-of-blogroll-item a,
+.site-author-name {
+  font-family: $serif;
+}
+
+.site-author-name { color: $ink !important; }
+.site-description { color: $ink-faint !important; }
+
+.feed-link a {
+  color: $ink-faint !important;
+  border-color: rgba($ink, .15) !important;
+  &:hover { color: $cinnabar !important; }
+}
+
+.links-of-author-item a {
+  color: $ink-faint;
+  &:hover { color: $cinnabar; }
+}
+
+.sidebar-nav .sidebar-nav-active {
+  color: $cinnabar !important;
+  border-bottom-color: $cinnabar !important;
+}
+
+
+// ---------------------------------------------------------------
+// 用主题变量覆盖，避免与内置样式打架
+// ---------------------------------------------------------------
+$text-color: $ink;
+$title-color: $ink;
+$link-color: $ink;
+$link-hover-color: $cinnabar;
+
+// ---------------------------------------------------------------
+// 主题把 h1-h6 统一设成了绿色，这里收回墨色
+// ---------------------------------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  color: $ink;
+}
+
+.sidebar-nav .sidebar-nav-active {
+  color: $cinnabar;
+  border-bottom-color: $cinnabar;
+  &:hover { color: $cinnabar; }
+}
+
+.posts-collapse .post-title a {
+  color: $ink;
+  &:hover { color: $cinnabar; }
+}

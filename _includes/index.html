@@ -1,11 +1,39 @@
-{% assign posts = site.posts %}
-{% if site.paginate > 0 %}{% assign posts = paginator.posts %}{% endif %}
+{% assign __ = site.data.languages[site.language] %}
+{% assign deep_posts = site.categories['深度'] | default: empty %}
+{% assign story_posts = site.categories['佛典故事'] | default: empty %}
 
-<section id="posts" class="posts-expand">
-  {% for post in posts %}
-    {% assign is_index = true %}
-    {% include _macro/post.html %}
-  {% endfor %}
+<div class="home-intro">
+  <p class="home-lede">佛法的老话，照今天的难处。</p>
+</div>
+
+<section class="shelf" id="deep">
+  <h2 class="shelf-title"><span class="shelf-seal">深</span>深度</h2>
+  <p class="shelf-note">把现代人的焦虑、职场、家庭，接到佛法里说清楚。</p>
+  <ol class="shelf-list">
+    {% for post in deep_posts limit:5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+        <span class="shelf-post-title">{{ post.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+  <a class="shelf-more" href="{{ '/deep/' | relative_url }}">全部 {{ deep_posts.size }} 篇</a>
 </section>
 
-{% include _partials/pagination.html %}
+<section class="shelf" id="stories">
+  <h2 class="shelf-title"><span class="shelf-seal">典</span>佛典故事</h2>
+  <p class="shelf-note">一段公案，一个判准，落在今天要做的选择上。</p>
+  <ol class="shelf-list">
+    {% for post in story_posts limit:5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+        <span class="shelf-post-title">{{ post.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+  <a class="shelf-more" href="{{ '/stories/' | relative_url }}">全部 {{ story_posts.size }} 篇</a>
+</section>

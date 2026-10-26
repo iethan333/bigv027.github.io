@@ -1,0 +1,18 @@
+---
+title: 深度
+layout: page
+permalink: /deep/
+---
+
+{% assign posts = site.categories['深度'] %}
+<ul class="column-list">
+{% for post in posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+      <span class="column-title">{{ post.title }}</span>
+      {% if post.description %}<span class="column-desc">{{ post.description }}</span>{% endif %}
+    </a>
+  </li>
+{% endfor %}
+</ul>

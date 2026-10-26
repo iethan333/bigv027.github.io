@@ -12,3 +12,4 @@ Thumbs.db
 /vendor
 _data/languages/pt.yml
 *.json
+.sass-cache/

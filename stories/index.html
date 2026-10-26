@@ -1,0 +1,18 @@
+---
+title: 佛典故事
+layout: page
+permalink: /stories/
+---
+
+{% assign posts = site.categories['佛典故事'] %}
+<ul class="column-list">
+{% for post in posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+      <span class="column-title">{{ post.title }}</span>
+      {% if post.source %}<span class="column-desc">{{ post.source }}</span>{% endif %}
+    </a>
+  </li>
+{% endfor %}
+</ul>
