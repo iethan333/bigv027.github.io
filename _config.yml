@@ -5,9 +5,6 @@
 
 # Site
 title: 学习成长再生
-subtitle: 一胜的博客
-description: 持续学习者
-author: 一胜
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -130,9 +127,7 @@ menu:
   home: /
   深度: /deep/
   佛典故事: /stories/
-  categories: /categories/
   archives: /archives/
-  about: /about/
   #tags: /tags/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
@@ -223,12 +218,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 
 social:
-  #LinkLabel: Link
-  #twitter: https://twitter.com/ishengjun
-  GitHub: https://github.com/bigv027
-  微博: https://weibo.com/heshengjun
-  豆瓣: https://www.douban.com/people/dasheng027/
-  email: mailto:2815966@qq.com
+  # （已移除外站链接）
 
 
 # Social Links Icons
@@ -248,7 +238,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: /assets/images/ethan.jpeg
+avatar:
 
 
 # Table Of Contents in the Sidebar
@@ -300,7 +290,6 @@ links_title: Links
 #links_layout: block
 links_layout: inline
 links:
-  阳志平的网志: https://www.yangzhiping.com/
 
 
 # ---------------------------------------------------------------

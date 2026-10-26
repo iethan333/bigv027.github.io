@@ -320,68 +320,72 @@ a {
   }
 }
 
+
 // ---------------------------------------------------------------
-// 侧栏：纸墨化
+// 侧栏：去掉作者块后重新收拢
 // ---------------------------------------------------------------
 .site-brand-container {
-  background: $ink !important;
+  background: $ink;
 }
 
 .site-meta {
-  .brand { color: $paper-light !important; font-family: $serif; font-weight: 600; letter-spacing: .06em; }
-  .site-subtitle { color: rgba($paper-light, .55) !important; font-family: $kai; }
+  .brand {
+    color: $paper-light;
+    font-family: $serif;
+    font-weight: 600;
+    letter-spacing: .08em;
+  }
+  .site-subtitle { display: none; }
 }
 
 .sidebar {
-  background: transparent !important;
-  box-shadow: none !important;
+  background: transparent;
+  box-shadow: none;
 }
 
 .sidebar-inner {
-  background: $paper-light;
-  border-radius: 0;
-  border: 1px solid rgba($ink, .1);
+  background: transparent;
+  border: none;
 }
 
-.site-state-item,
-.links-of-blogroll-item a,
-.site-author-name {
+// 菜单作为侧栏唯一主体，去掉白底卡片
+.site-overview {
+  padding: 0;
+}
+
+.site-state {
+  margin-top: 1.6em;
+  padding-top: 1.4em;
+  border-top: 1px solid rgba($ink, .12);
+}
+
+.site-state-item {
   font-family: $serif;
+  border-left: none;
+
+  &:first-child { border-left: none; }
 }
 
-.site-author-name { color: $ink !important; }
-.site-description { color: $ink-faint !important; }
-
-.feed-link a {
-  color: $ink-faint !important;
-  border-color: rgba($ink, .15) !important;
-  &:hover { color: $cinnabar !important; }
-}
-
-.links-of-author-item a {
-  color: $ink-faint;
-  &:hover { color: $cinnabar; }
-}
-
-.sidebar-nav .sidebar-nav-active {
-  color: $cinnabar !important;
-  border-bottom-color: $cinnabar !important;
-}
-
-
-// ---------------------------------------------------------------
-// 用主题变量覆盖，避免与内置样式打架
-// ---------------------------------------------------------------
-$text-color: $ink;
-$title-color: $ink;
-$link-color: $ink;
-$link-hover-color: $cinnabar;
-
-// ---------------------------------------------------------------
-// 主题把 h1-h6 统一设成了绿色，这里收回墨色
-// ---------------------------------------------------------------
-h1, h2, h3, h4, h5, h6 {
+.site-state-item-count {
+  font-weight: 400;
   color: $ink;
+}
+
+.site-state-item-name {
+  color: $ink-faint;
+  letter-spacing: .06em;
+}
+
+.feed-link {
+  margin-top: 1.2em;
+  a {
+    color: $ink-faint;
+    border: 1px solid rgba($ink, .15);
+    border-radius: 0;
+    font-family: $serif;
+    letter-spacing: .06em;
+    &:hover { color: $cinnabar; border-color: $cinnabar; }
+  }
 }
 
 .sidebar-nav .sidebar-nav-active {
@@ -390,7 +394,134 @@ h1, h2, h3, h4, h5, h6 {
   &:hover { color: $cinnabar; }
 }
 
-.posts-collapse .post-title a {
+// ---------------------------------------------------------------
+// 版面节奏：上下留白统一
+// ---------------------------------------------------------------
+.content-wrap {
+  padding-top: 0;
+}
+
+.main-inner {
+  padding-top: 3.6em;
+}
+
+.posts-expand .post {
+  margin-top: 0;
+}
+
+.footer {
+  margin-top: 5em;
+  padding: 2.2em 0 3em;
+  border-top: 1px solid rgba($ink, .1);
+  color: $ink-faint;
+  font-size: .82em;
+  letter-spacing: .06em;
+}
+
+// 顶栏去掉多余边框
+.headband {
+  display: none;
+}
+
+.header {
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-nav-toggle {
+  background: rgba($paper, .95);
+}
+
+// 返回顶部按钮
+.back-to-top {
+  background: $ink;
+  color: $paper-light;
+  border-radius: 0;
+}
+
+// 侧栏容器与品牌头打通，去掉白色方盒
+.header-inner {
+  background: $paper !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.site-meta {
+  background: $ink;
+  padding: 2.2em 0;
+  box-shadow: none !important;
+
+  @include tablet() { box-shadow: none !important; }
+  @include mobile() { box-shadow: none !important; }
+}
+
+.site-nav {
+  margin: 0 !important;
+  padding: 0.9em 0 !important;
+  border-top: none;
+}
+
+.menu .menu-item a {
+  padding: 8px 24px;
+  font-size: .95em;
+  letter-spacing: .1em;
+  color: $ink-faint;
+
+  &:hover { background: rgba($ink, .04); color: $cinnabar; }
+}
+
+.menu-item-active a {
+  background: transparent;
+  color: $cinnabar;
+
+  &:after { background-color: $cinnabar; }
+}
+
+.site-search input {
+  background: rgba($ink, .04);
+  border: 1px solid rgba($ink, .1);
+  border-radius: 0;
   color: $ink;
+}
+
+// 菜单更紧凑，去掉右侧圆点标记
+.menu .menu-item a {
+  padding: 7px 24px;
+  line-height: 1.7;
+}
+
+.menu-item-active a:after {
+  display: none;
+}
+
+.site-nav {
+  padding: .5em 0 !important;
+}
+
+// 站点统计与 RSS 收紧
+.site-state {
+  margin-top: 1.2em;
+  padding-top: 1em;
+  border-top: 1px solid rgba($ink, .1);
+}
+
+.feed-link {
+  border-top: none;
+  border-bottom: none;
+  margin-top: .8em;
+
+  a {
+    display: inline-block;
+    padding: .35em 1.2em;
+    border: 1px solid rgba($ink, .16);
+    background: transparent;
+  }
+}
+
+// 主题对标题链接单独用了绿色，这里收回墨色
+.posts-expand .post-title,
+.posts-expand .post-title-link {
+  color: $ink;
+
   &:hover { color: $cinnabar; }
 }
