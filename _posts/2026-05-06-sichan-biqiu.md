@@ -1,5 +1,6 @@
 ---
 title: "四禅比丘：修到第四禅，为什么反而堕入地狱"
+description: "修到第四禅，自认已证阿罗汉，不再精进。天报尽时见衰相，反生邪见，临终直堕阿鼻地狱。"
 categories:
 - 佛典故事
 permalink: /stories/sichan-biqiu.html
